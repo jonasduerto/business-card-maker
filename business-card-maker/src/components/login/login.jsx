@@ -1,25 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import styles from './login.module.css';
 
 const Login = ({authService}) => {
+  const history = useHistory();
+
+  const goToMaker = userId => {
+    history.push({
+      pathname: '/maker',
+      state: {id: userId},
+    });
+  };
+
   const onLogin = event => {
     authService
       .login(event.currentTarget.textContent)
-      .then(console.log);
+      .then(data => goToMaker(data.user.uid));
   };
 
+  useEffect(() => {
+    authService.onAuthChange(user => {
+      user && goToMaker(user.id);
+    });
+  });
+
   return (
-    <section>
+    <section className={styles.login}>
       <Header />
       <section>
         <h1>Login</h1>
-        <ul>
-          <li>
-            <button onClick={onLogin}>Google</button>
+        <ul className={styles.ul}>
+          <li className={styles.li}>
+            <button className={styles.button} onClick={onLogin}>
+              Google
+            </button>
           </li>
-          <li>
-            <button onClick={onLogin}>Github</button>
+          <li className={styles.li}>
+            <button className={styles.button} onClick={onLogin}>
+              Github
+            </button>
           </li>
         </ul>
       </section>
