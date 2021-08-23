@@ -18,7 +18,7 @@ const Card = ({card}) => {
   const url = fileURL || DEFAULT_IMAGE;
 
   return (
-    <li className={styles.card}>
+    <li className={`${styles.card} ${getStyles(theme)}`}>
       <img className={styles.img} src={url} alt="profile-pic" />
       <div className={styles.info}>
         <h1 className={styles.name}>{name}</h1>
@@ -30,5 +30,20 @@ const Card = ({card}) => {
     </li>
   );
 };
+
+function getStyles(theme) {
+  switch (theme) {
+    case 'dark':
+      return styles.dark;
+
+    case 'light':
+      return styles.light;
+
+    case 'colorful':
+      return styles.colorful;
+    default:
+      throw new Error(`unknown theme: ${theme}`);
+  }
+}
 
 export default Card;
