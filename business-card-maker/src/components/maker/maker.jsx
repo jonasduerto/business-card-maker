@@ -17,7 +17,7 @@ const Maker = ({authService}) => {
       email: 'sjskybone@gmail.com',
       message: 'go for it',
       fileName: 'sj',
-      fileURL: 'sj.png'
+      fileURL: '/images/logo.png'
     },
     {
       id: '2',
@@ -28,7 +28,7 @@ const Maker = ({authService}) => {
       email: 'hyelim-h@hotmail.com',
       message: 'just do it',
       fileName: 'amy',
-      fileURL: 'amy.png'
+      fileURL: null
     },
     {
       id: '3',
@@ -39,7 +39,7 @@ const Maker = ({authService}) => {
       email: 'hyebbu@gmail.com',
       message: 'heal me',
       fileName: 'hyebbu',
-      fileURL: 'hyebbu.png'
+      fileURL: null
     }
   ]);
 
