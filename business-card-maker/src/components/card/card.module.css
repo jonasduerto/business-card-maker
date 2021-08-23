@@ -39,7 +39,11 @@
   width: 100%;
 }
 
-.name, .company, .title, .email, .message {
+.name,
+.company,
+.title,
+.email,
+.message {
   margin: 0;
   font-size: 0.8rem;
   margin-bottom: 0.2em;
