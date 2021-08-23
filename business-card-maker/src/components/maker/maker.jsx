@@ -12,12 +12,12 @@ const Maker = ({authService}) => {
       id: '1',
       name: 'SJ',
       company: 'LFZ',
-      theme: 'light',
+      theme: 'dark',
       title: 'Web Developer',
       email: 'sjskybone@gmail.com',
       message: 'go for it',
       fileName: 'sj',
-      fileURL: '/images/logo.png'
+      fileURL: 'sjkim.png'
     },
     {
       id: '2',
@@ -34,7 +34,7 @@ const Maker = ({authService}) => {
       id: '3',
       name: 'Hyebbu',
       company: 'OW',
-      theme: 'light',
+      theme: 'colorful',
       title: 'Healer',
       email: 'hyebbu@gmail.com',
       message: 'heal me',
