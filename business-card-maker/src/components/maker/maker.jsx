@@ -90,13 +90,13 @@ const Maker = ({authService}) => {
     });
   });
 
-  const addCard = card => {
-    const updated = [...cards, card];
-    setCards(updated);
-  };
+  const createOrUpdateCard = card => {
+    setCards(cards => {
+      const updated = { ...cards };
+      updated[card.id] = card;
 
-  const updateCard = card => {
-    console.log(card);
+      return updated;
+    });
   };
 
   const deleteCard = card => {
@@ -109,8 +109,8 @@ const Maker = ({authService}) => {
       <div className={styles.container}>
         <Editor
           cards={cards}
-          addCard={addCard}
-          updateCard={updateCard}
+          addCard={createOrUpdateCard}
+          updateCard={createOrUpdateCard}
           deleteCard={deleteCard}
         />
         <Preview cards={cards} />
