@@ -7,8 +7,8 @@ import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
 const Maker = ({authService}) => {
-  const [cards, setCards] = useState([
-    {
+  const [cards, setCards] = useState({
+    '1': {
       id: '1',
       name: 'Reinhardt Wilhelm',
       company: 'Overwatch',
@@ -19,7 +19,7 @@ const Maker = ({authService}) => {
       fileName: 'reinhardt',
       fileURL: 'reinhardt.png'
     },
-    {
+    '2': {
       id: '2',
       name: 'Aleksandra Zaryanova',
       company: 'Russian Defense Forces',
@@ -30,7 +30,7 @@ const Maker = ({authService}) => {
       fileName: 'zarya',
       fileURL: null
     },
-    {
+    '3': {
       id: '3',
       name: 'Elizabeth Caledonia "Calamity" Ashe',
       company: 'Deadlock Gang',
@@ -41,7 +41,7 @@ const Maker = ({authService}) => {
       fileName: 'ashe',
       fileURL: null
     },
-    {
+    '4': {
       id: '4',
       name: 'Genji Shimada',
       company: 'Overwatch',
@@ -52,7 +52,7 @@ const Maker = ({authService}) => {
       fileName: 'genji',
       fileURL: null
     },
-    {
+    '5': {
       id: '5',
       name: 'Lucio Correia dos Santos',
       company: 'Freelance DJ',
@@ -63,7 +63,7 @@ const Maker = ({authService}) => {
       fileName: 'lucio',
       fileURL: null
     },
-    {
+    '6': {
       id: '6',
       name: 'Ana Amari',
       company: 'Overwatch',
@@ -74,7 +74,7 @@ const Maker = ({authService}) => {
       fileName: 'ana',
       fileURL: null
     }
-  ]);
+  });
 
   const history = useHistory();
 
@@ -107,7 +107,12 @@ const Maker = ({authService}) => {
     <section className={styles.maker}>
       <Header onLogout={onLogout} />
       <div className={styles.container}>
-        <Editor cards={cards} addCard={addCard} updateCard={updateCard} deleteCard={deleteCard} />
+        <Editor
+          cards={cards}
+          addCard={addCard}
+          updateCard={updateCard}
+          deleteCard={deleteCard}
+        />
         <Preview cards={cards} />
       </div>
       <Footer />
