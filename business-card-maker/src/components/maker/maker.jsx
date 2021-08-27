@@ -6,7 +6,11 @@ import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
-const Maker = ({FileInput, authService}) => {
+const Maker = ({FileInput, authService, cardRepository}) => {
+  const history = useHistory();
+
+  const historyState = history?.location?.state;
+
   const [cards, setCards] = useState({
     '1': {
       id: '1',
@@ -41,42 +45,42 @@ const Maker = ({FileInput, authService}) => {
       fileName: 'ashe',
       fileURL: null
     },
-    '4': {
-      id: '4',
-      name: 'Genji Shimada',
-      company: 'Overwatch',
-      theme: 'dark',
-      title: 'Projectile DPS',
-      email: 'shimadamada@overwatch.com',
-      message: 'Tell me where to buy Adamantium blade',
-      fileName: 'genji',
-      fileURL: null
-    },
-    '5': {
-      id: '5',
-      name: 'Lucio Correia dos Santos',
-      company: 'Freelance DJ',
-      theme: 'light',
-      title: 'Main Healer',
-      email: 'beatcoin@freedom.com',
-      message: 'Drop the beat',
-      fileName: 'lucio',
-      fileURL: null
-    },
-    '6': {
-      id: '6',
-      name: 'Ana Amari',
-      company: 'Overwatch',
-      theme: 'colorful',
-      title: 'Sub Healer',
-      email: 'jigglypuff@overwatch.com',
-      message: 'Do not fall asleep on the street',
-      fileName: 'ana',
-      fileURL: null
-    }
+    // '4': {
+    //   id: '4',
+    //   name: 'Genji Shimada',
+    //   company: 'Overwatch',
+    //   theme: 'dark',
+    //   title: 'Projectile DPS',
+    //   email: 'shimadamada@overwatch.com',
+    //   message: 'Tell me where to buy Adamantium blade',
+    //   fileName: 'genji',
+    //   fileURL: null
+    // },
+    // '5': {
+    //   id: '5',
+    //   name: 'Lucio Correia dos Santos',
+    //   company: 'Freelance DJ',
+    //   theme: 'light',
+    //   title: 'Main Healer',
+    //   email: 'beatcoin@freedom.com',
+    //   message: 'Drop the beat',
+    //   fileName: 'lucio',
+    //   fileURL: null
+    // },
+    // '6': {
+    //   id: '6',
+    //   name: 'Ana Amari',
+    //   company: 'Overwatch',
+    //   theme: 'colorful',
+    //   title: 'Sub Healer',
+    //   email: 'jigglypuff@overwatch.com',
+    //   message: 'Do not fall asleep on the street',
+    //   fileName: 'ana',
+    //   fileURL: null
+    // }
   });
 
-  const history = useHistory();
+  const [userId, setUserId] = useState(historyState && historyState.id);
 
   const onLogout = () => {
     authService.logout();
@@ -84,7 +88,9 @@ const Maker = ({FileInput, authService}) => {
 
   useEffect(() => {
     authService.onAuthChange(user => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         history.push('/');
       }
     });
@@ -97,6 +103,7 @@ const Maker = ({FileInput, authService}) => {
 
       return updated;
     });
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = card => {
@@ -106,6 +113,7 @@ const Maker = ({FileInput, authService}) => {
 
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
