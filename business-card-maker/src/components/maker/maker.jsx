@@ -12,70 +12,26 @@ const Maker = ({FileInput, authService, cardRepository}) => {
   const historyState = history?.location?.state;
 
   const [cards, setCards] = useState({
-    '1': {
-      id: '1',
-      name: 'Reinhardt Wilhelm',
-      company: 'Overwatch',
-      theme: 'dark',
-      title: 'Main Tank',
-      email: 'beerholic@overwatch.com',
-      message: 'All I need is Vibranium shield',
-      fileName: 'reinhardt',
-      fileURL: 'reinhardt.png'
-    },
-    '2': {
-      id: '2',
-      name: 'Aleksandra Zaryanova',
-      company: 'Russian Defense Forces',
-      theme: 'light',
-      title: 'Sub Tank',
-      email: 'whatissummer@rdforce.com',
-      message: 'Together, we are strong',
-      fileName: 'zarya',
-      fileURL: null
-    },
-    '3': {
-      id: '3',
-      name: 'Elizabeth Caledonia "Calamity" Ashe',
-      company: 'Deadlock Gang',
-      theme: 'colorful',
-      title: 'Hitscan DPS',
-      email: 'wishbobissmarter.dgang.com',
-      message: 'Please do the right thing, Bob',
-      fileName: 'ashe',
-      fileURL: null
-    },
-    // '4': {
-    //   id: '4',
-    //   name: 'Genji Shimada',
+    // '1': {
+    //   id: '1',
+    //   name: 'Reinhardt Wilhelm',
     //   company: 'Overwatch',
     //   theme: 'dark',
-    //   title: 'Projectile DPS',
-    //   email: 'shimadamada@overwatch.com',
-    //   message: 'Tell me where to buy Adamantium blade',
-    //   fileName: 'genji',
-    //   fileURL: null
+    //   title: 'Main Tank',
+    //   email: 'beerholic@overwatch.com',
+    //   message: 'All I need is a Vibranium shield',
+    //   fileName: 'reinhardt',
+    //   fileURL: 'reinhardt.png'
     // },
-    // '5': {
-    //   id: '5',
-    //   name: 'Lucio Correia dos Santos',
-    //   company: 'Freelance DJ',
+    // '2': {
+    //   id: '2',
+    //   name: 'Aleksandra Zaryanova',
+    //   company: 'Russian Defense Forces',
     //   theme: 'light',
-    //   title: 'Main Healer',
-    //   email: 'beatcoin@freedom.com',
-    //   message: 'Drop the beat',
-    //   fileName: 'lucio',
-    //   fileURL: null
-    // },
-    // '6': {
-    //   id: '6',
-    //   name: 'Ana Amari',
-    //   company: 'Overwatch',
-    //   theme: 'colorful',
-    //   title: 'Sub Healer',
-    //   email: 'jigglypuff@overwatch.com',
-    //   message: 'Do not fall asleep on the street',
-    //   fileName: 'ana',
+    //   title: 'Sub Tank',
+    //   email: 'whatissummer@rdforce.com',
+    //   message: 'Together, we are strong',
+    //   fileName: 'zarya',
     //   fileURL: null
     // }
   });
@@ -85,6 +41,16 @@ const Maker = ({FileInput, authService, cardRepository}) => {
   const onLogout = () => {
     authService.logout();
   };
+
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    })
+    return () => stopSync();
+  }, [userId]);
 
   useEffect(() => {
     authService.onAuthChange(user => {
