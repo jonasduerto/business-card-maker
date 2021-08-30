@@ -22,18 +22,7 @@ const Maker = ({FileInput, authService, cardRepository}) => {
     //   message: 'All I need is a Vibranium shield',
     //   fileName: 'reinhardt',
     //   fileURL: 'reinhardt.png'
-    // },
-    // '2': {
-    //   id: '2',
-    //   name: 'Aleksandra Zaryanova',
-    //   company: 'Russian Defense Forces',
-    //   theme: 'light',
-    //   title: 'Sub Tank',
-    //   email: 'whatissummer@rdforce.com',
-    //   message: 'Together, we are strong',
-    //   fileName: 'zarya',
-    //   fileURL: null
-    // }
+    // }         Example
   });
 
   const [userId, setUserId] = useState(historyState && historyState.id);
