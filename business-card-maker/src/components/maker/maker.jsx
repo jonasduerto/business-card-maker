@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Editor from '../editor/editor';
 import Footer from '../footer/footer';
@@ -22,25 +22,14 @@ const Maker = ({FileInput, authService, cardRepository}) => {
     //   message: 'All I need is a Vibranium shield',
     //   fileName: 'reinhardt',
     //   fileURL: 'reinhardt.png'
-    // },
-    // '2': {
-    //   id: '2',
-    //   name: 'Aleksandra Zaryanova',
-    //   company: 'Russian Defense Forces',
-    //   theme: 'light',
-    //   title: 'Sub Tank',
-    //   email: 'whatissummer@rdforce.com',
-    //   message: 'Together, we are strong',
-    //   fileName: 'zarya',
-    //   fileURL: null
-    // }
+    // }         Example
   });
 
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]);
 
   useEffect(() => {
     if (!userId) {
@@ -50,7 +39,7 @@ const Maker = ({FileInput, authService, cardRepository}) => {
       setCards(cards);
     })
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   useEffect(() => {
     authService.onAuthChange(user => {
@@ -60,7 +49,7 @@ const Maker = ({FileInput, authService, cardRepository}) => {
         history.push('/');
       }
     });
-  });
+  }, [authService, userId, history]);
 
   const createOrUpdateCard = card => {
     setCards(cards => {
