@@ -1,5 +1,5 @@
 # business-card-maker
-A full-stack JavaScript and React-based web application that allows users to create and delete other people's name cards simply. The stored data manages using a Firebase.
+A full-stack JavaScript and React-based web application that allows users to create and delete other's name cards simply. The stored data manages using a Firebase.
 
 # Technologies Used
 * React.js
