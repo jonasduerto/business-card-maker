@@ -1,39 +1,70 @@
-# business-card-maker
-A full-stack JavaScript and React-based web application that allows users to create and delete other's name cards simply. The stored data manages using a Firebase.
+# Getting Started with Create React App
 
-# Technologies Used
-* React.js
-* Node.js
-* Firebase
-* Webpack
-* npm
-* HTML5
-* CSS3
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Live Site
-Live Site will be attach soon
+## Available Scripts
 
-# Current Feature List
-1. User can login and out
-2. User can see maker and preview
-3. User can see create card maker
-4. User can edit a card
-5. User can delete a card
-6. User can upload an image
-7. User can see loading spinner
-8. User can see store the data
+In the project directory, you can run:
 
-# Images
-![image](https://user-images.githubusercontent.com/68725614/134992655-8e7250c4-eefb-4c96-886a-e79186534c1f.png)
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-![image](https://user-images.githubusercontent.com/68725614/134992496-95e3fb2b-1625-4cea-97f3-fbb83490fa18.png)
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `npm test`
 
-![image](https://user-images.githubusercontent.com/68725614/134992571-63868cc0-a094-43e9-b984-cd56b21e8dbf.png)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-![image](https://user-images.githubusercontent.com/68725614/134992607-c0ed1857-c0b1-45ae-bc61-7e8014c9cd1d.png)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-![image](https://user-images.githubusercontent.com/68725614/134992520-d160579d-9990-40fa-9b95-3ec9b0b0ecee.png)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
